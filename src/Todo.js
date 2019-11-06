@@ -11,12 +11,16 @@ function Todo({ task, completed }) {
   return (
     <ListItem>
       <Checkbox tabIndex={-1} checked={completed} />
-      <ListItemText>{task}</ListItemText>
+      <ListItemText
+        style={{ textDecoration: completed ? "line-through" : "none" }}
+      >
+        {task}
+      </ListItemText>
       <ListItemSecondaryAction>
-        <IconButton>
+        <IconButton aria-label="Delete">
           <DeleteIcon />
         </IconButton>
-        <IconButton>
+        <IconButton aria-label="Edit">
           <EditIcon />
         </IconButton>
       </ListItemSecondaryAction>
